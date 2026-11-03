@@ -89,10 +89,9 @@
 
     /* ───────── Hero ───────── */
     main section.hero {
-      min-height: calc(100svh - 64px);
-      display: flex; flex-direction: column; justify-content: space-between;
-      gap: clamp(48px, 8vw, 120px);
-      padding-top: clamp(24px, 3vw, 40px); padding-bottom: clamp(28px, 4vw, 48px);
+      display: flex; flex-direction: column;
+      gap: clamp(32px, 4vw, 56px);
+      padding-top: clamp(24px, 3vw, 40px); padding-bottom: 0;
     }
     .hero-meta {
       display: flex; justify-content: space-between; gap: 16px;
@@ -196,9 +195,7 @@
       .job-date { flex-direction: row; align-items: center; gap: 12px; }
     }
     @media (max-width: 520px) {
-      .display { font-size: 9.6vw; }
-      main section.hero { min-height: calc(100svh - 58px); }
-      .nav-in { height: 58px; }
+      .display { font-size: 9.6vw; }      .nav-in { height: 58px; }
       .pill.nav-cta { display: none; }
       .stat { min-height: 150px; }
       .links a small { display: none; }
