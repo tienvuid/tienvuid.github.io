@@ -56,7 +56,6 @@
       font-size: 13px; letter-spacing: .02em; color: var(--muted);
       display: flex; gap: 10px; align-items: baseline;
     }
-    .label b { font-weight: 500; color: var(--ink); }
 
     /* ───────── Nav ───────── */
     .nav {
@@ -173,14 +172,12 @@
     .skills { border-top: 1px solid var(--ink); margin-top: 28px; }
     .skills li { display: flex; gap: 20px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); font-family: var(--display); font-weight: 500; font-size: clamp(1.25rem, 2vw, 1.9rem); letter-spacing: -.03em; transition: padding .3s; }
     .skills li:hover { padding-left: 10px; }
-    .skills li span { font-family: var(--text); font-weight: 400; font-size: 13px; letter-spacing: 0; color: var(--muted); min-width: 24px; }
 
     /* ───────── Contact ───────── */
     .contact { margin-top: clamp(72px, 10vw, 140px); background: var(--brown); color: var(--bg); padding: clamp(56px, 8vw, 110px) 0 28px; }
-    .contact .label, .contact .label b { color: rgba(238, 234, 227, .7); }
-    .contact .h2 { margin: 24px 0 clamp(36px, 5vw, 64px); max-width: 12ch; }
+    .contact .h2 { margin: 0 0 clamp(28px, 4vw, 48px); font-size: clamp(1.9rem, 3.8vw, 3.5rem); line-height: 1.05; letter-spacing: -.04em; }
     .links { border-top: 1px solid rgba(238, 234, 227, .35); }
-    .links a { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 20px 0; border-bottom: 1px solid rgba(238, 234, 227, .2); font-family: var(--display); font-weight: 500; font-size: clamp(1.3rem, 2.6vw, 2.4rem); letter-spacing: -.035em; transition: padding .3s, background .3s; }
+    .links a { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(238, 234, 227, .2); font-family: var(--display); font-weight: 500; font-size: clamp(1.1rem, 1.7vw, 1.5rem); letter-spacing: -.03em; transition: padding .3s, background .3s; }
     .links a small { font-family: var(--text); font-size: 14px; font-weight: 400; letter-spacing: 0; color: rgba(238, 234, 227, .65); }
     .links a:hover { padding-left: 14px; padding-right: 14px; background: rgba(238, 234, 227, .06); }
     footer { margin-top: clamp(48px, 7vw, 96px); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: rgba(238, 234, 227, .6); }
@@ -260,7 +257,7 @@
       </div>
 
       <div class="hero-bottom">
-        <div class="label"><b>(00)</b> Interior designer</div>
+        <div class="label">Interior designer</div>
         <p data-en="My goal is to keep developing and refining my interior design skills — from capturing new trends to creatively crafting unique, engaging living spaces — while delivering the highest value to clients and the company.">
           Mục tiêu của mình là không ngừng trau dồi kỹ năng thiết kế nội thất: từ nắm bắt xu hướng mới đến sáng tạo những không gian sống độc đáo, cuốn hút — và mang lại giá trị cao nhất cho khách hàng và công ty.
         </p>
@@ -273,7 +270,7 @@
 
     <!-- ═════════ ABOUT ═════════ -->
     <section id="about" class="wrap">
-      <div class="label reveal"><b>(01)</b> <span data-en="About">Giới thiệu</span></div>
+      <div class="label reveal"><span data-en="About">Giới thiệu</span></div>
       <div class="about-grid">
         <p class="statement reveal" data-en="Since 2017, I've worked on houses, apartments, offices and even gaming cafés — from the first idea and drawings to the finished build.">
           Từ năm 2017, mình đồng hành cùng những ngôi nhà, căn hộ, văn phòng và cả quán gaming café — từ ý tưởng, bản vẽ đến lúc công trình hoàn thiện.
@@ -302,7 +299,7 @@
     <!-- ═════════ EXPERIENCE ═════════ -->
     <section id="experience" class="wrap">
       <div class="sec-head">
-        <div class="label reveal"><b>(02)</b> <span data-en="Career">Sự nghiệp</span></div>
+        <div class="label reveal"><span data-en="Career">Sự nghiệp</span></div>
         <h2 class="h2 reveal" data-en="Work<br>experience">Kinh nghiệm<br>làm việc</h2>
       </div>
 
@@ -381,20 +378,20 @@
     <section id="skills" class="wrap">
       <div class="two">
         <div class="edu reveal">
-          <div class="label"><b>(03)</b> <span data-en="Education">Học vấn</span></div>
+          <div class="label"><span data-en="Education">Học vấn</span></div>
           <div class="year">2013 — 2018</div>
           <p class="big" data-en="Ho Chi Minh City University of Technology (HUTECH)">Trường Đại học Công nghệ TP. Hồ Chí Minh (HUTECH)</p>
           <p class="meta" data-en="Major: Interior design">Chuyên ngành: Thiết kế nội thất</p>
         </div>
         <div class="reveal">
-          <div class="label"><b>(04)</b> <span data-en="Skills & software">Kỹ năng &amp; phần mềm</span></div>
+          <div class="label"><span data-en="Skills & software">Kỹ năng &amp; phần mềm</span></div>
           <ul class="skills">
-            <li><span>01</span>Autodesk 3ds Max</li>
-            <li><span>02</span>Autodesk AutoCAD</li>
-            <li><span>03</span>SketchUp</li>
-            <li><span>04</span>V-Ray rendering</li>
-            <li><span>05</span>Corona rendering</li>
-            <li><span>06</span>Photoshop</li>
+            <li>Autodesk 3ds Max</li>
+            <li>Autodesk AutoCAD</li>
+            <li>SketchUp</li>
+            <li>V-Ray rendering</li>
+            <li>Corona rendering</li>
+            <li>Photoshop</li>
           </ul>
         </div>
       </div>
@@ -404,7 +401,6 @@
   <!-- ═════════ CONTACT ═════════ -->
   <section id="contact" class="contact">
     <div class="wrap">
-      <div class="label"><b>(05)</b> <span data-en="Contact">Liên hệ</span></div>
       <h2 class="h2" data-en="Let's shape<br>your space.">Cùng tạo nên<br>không gian của bạn.</h2>
       <div class="links">
         <a href="https://www.behance.net/tienvuid" target="_blank" rel="noopener">Behance <small>behance.net/tienvuid ↗</small></a>
