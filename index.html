@@ -31,7 +31,6 @@
       --brown: #3A2217;
       --muted: #6B5B50;
       --line: rgba(36, 22, 15, .22);
-      --tan: #CDBBA8;
       --pad: clamp(20px, 4vw, 56px);
       --display: "Inter Tight", "Inter", "Helvetica Neue", Arial, sans-serif;
       --text: "Inter", "Helvetica Neue", Arial, sans-serif;
@@ -89,47 +88,42 @@
     .pill.ghost:hover { background: var(--ink); color: var(--bg); }
 
     /* ───────── Hero ───────── */
-    .hero-top {
-      display: grid; grid-template-columns: 1fr clamp(240px, 27vw, 400px);
-      gap: clamp(24px, 5vw, 80px); align-items: end;
+    main section.hero {
+      min-height: calc(100svh - 64px);
+      display: flex; flex-direction: column; justify-content: space-between;
+      gap: clamp(48px, 8vw, 120px);
+      padding-top: clamp(24px, 3vw, 40px); padding-bottom: clamp(28px, 4vw, 48px);
+    }
+    .hero-meta {
+      display: flex; justify-content: space-between; gap: 16px;
+      font-size: 13px; color: var(--muted);
+      padding-bottom: 14px; border-bottom: 1px solid var(--line);
     }
     .display {
       font-family: var(--display); font-weight: 500;
-      font-size: clamp(3rem, 7.6vw, 8.75rem);
+      font-size: clamp(2.6rem, 9vw, 9rem);
       line-height: .98; letter-spacing: -.05em;
     }
     .line { display: block; overflow: hidden; padding-top: .14em; margin-top: -.14em; padding-bottom: .17em; margin-bottom: -.17em; }
     .line > span { display: block; transform: translateY(110%); animation: rise 1s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: calc(var(--i) * .09s + .1s); }
     @keyframes rise { to { transform: none; } }
-
-    .arch-wrap { position: relative; justify-self: end; width: 100%; margin-bottom: 4px; }
-    .arch-box { position: relative; }
-    .arch-box::before, .arch-box::after { content: ""; position: absolute; border-radius: 999px 999px 0 0; z-index: 0; }
-    .arch-box::before { top: -14px; bottom: 0; left: -34px; width: 70%; background: var(--tan); opacity: .7; }
-    .arch-box::after { top: -28px; bottom: 0; right: -22px; width: 78%; border: 1px solid var(--ink); border-bottom: 0; opacity: .5; }
-    .arch {
-      position: relative; z-index: 1; aspect-ratio: 3 / 4.15; background: #000;
-      border-radius: 999px 999px 0 0; overflow: hidden;
-      opacity: 0; animation: fade 1.1s .35s ease forwards;
-    }
-    .arch img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
     @keyframes fade { to { opacity: 1; } }
-    .arch-cap {
-      position: relative; z-index: 1; display: flex; margin-top: 18px; justify-content: space-between; gap: 12px;
-      font-size: 12.5px; color: var(--muted); padding-top: 12px; border-top: 1px solid var(--ink);
+    .tagline {
+      margin-top: clamp(14px, 2vw, 24px);
+      font-family: var(--display); font-weight: 500; letter-spacing: -.035em; line-height: 1.1;
+      font-size: clamp(1.3rem, 2.6vw, 2.4rem); color: var(--muted);
+      text-wrap: balance; opacity: 0; animation: fade 1s .5s ease forwards;
     }
-    .arch-cap b { color: var(--ink); font-weight: 500; }
 
     .hero-bottom {
-      margin-top: clamp(40px, 6vw, 80px); padding: 24px 0 0; border-top: 1px solid var(--ink);
-      display: grid; grid-template-columns: 1fr 1.6fr auto; gap: clamp(20px, 4vw, 64px); align-items: start;
+      padding-top: 24px; border-top: 1px solid var(--ink);
+      display: grid; grid-template-columns: 1fr auto; gap: clamp(20px, 4vw, 64px); align-items: start;
     }
-    .hero-bottom p { font-size: clamp(15px, 1.25vw, 17.5px); color: var(--ink); max-width: 56ch; }
+    .hero-bottom p { font-size: clamp(15px, 1.25vw, 17.5px); color: var(--ink); max-width: 60ch; }
     .hero-bottom .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
 
     /* ───────── About / stats ───────── */
     main section { padding-top: clamp(72px, 10vw, 140px); }
-    main section.hero { padding-top: clamp(40px, 7vw, 96px); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); margin-top: 28px; align-items: start; }
     .statement {
       font-family: var(--display); font-weight: 500; letter-spacing: -.035em; line-height: 1.08;
@@ -189,22 +183,21 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .line > span { transform: none; animation: none; }
-      .arch { opacity: 1; animation: none; }
+      .tagline { opacity: 1; animation: none; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
     }
 
     /* ───────── Responsive ───────── */
     @media (max-width: 960px) {
       .nav-links { display: none; }
-      .hero-top { grid-template-columns: 1fr; }
-      .arch-wrap { max-width: 290px; justify-self: start; margin-left: 28px; margin-top: 40px; }
       .hero-bottom { grid-template-columns: 1fr; }
       .about-grid, .two { grid-template-columns: 1fr; }
       .job { grid-template-columns: 1fr; gap: 14px; }
       .job-date { flex-direction: row; align-items: center; gap: 12px; }
     }
     @media (max-width: 520px) {
-      .display { font-size: 10.2vw; }
+      .display { font-size: 12.4vw; }
+      main section.hero { min-height: calc(100svh - 58px); }
       .nav-in { height: 58px; }
       .pill.nav-cta { display: none; }
       .stat { min-height: 150px; }
@@ -236,28 +229,17 @@
   <main>
     <!-- ═════════ HERO ═════════ -->
     <section class="hero wrap">
-      <div class="hero-top">
-        <h1 class="display" data-en='<span class="line"><span style="--i:0">Designing</span></span><span class="line"><span style="--i:1">spaces worth</span></span><span class="line"><span style="--i:2">living in.</span></span>'>
-          <span class="line"><span style="--i:0">Thiết kế</span></span>
-          <span class="line"><span style="--i:1">những không gian</span></span>
-          <span class="line"><span style="--i:2">đáng sống.</span></span>
-        </h1>
+      <div class="hero-meta">
+        <span>Interior designer</span>
+        <span>CEO · 945 Design</span>
+      </div>
 
-        <figure class="arch-wrap">
-          <div class="arch-box">
-            <div class="arch">
-              <img src="portrait.jpg" alt="Chân dung Vũ Quang Tiến" width="471" height="507" fetchpriority="high">
-            </div>
-          </div>
-          <figcaption class="arch-cap">
-            <span><b>Vũ Quang Tiến</b><br>Interior designer</span>
-            <span style="text-align:right">CEO · 945 Design<br><span data-en="since 2022">từ 2022</span></span>
-          </figcaption>
-        </figure>
+      <div>
+        <h1 class="display"><span class="line"><span style="--i:0">Vũ Quang Tiến</span></span></h1>
+        <p class="tagline" data-en="Designing spaces worth living in.">Thiết kế những không gian đáng sống.</p>
       </div>
 
       <div class="hero-bottom">
-        <div class="label">Interior designer</div>
         <p data-en="My goal is to keep developing and refining my interior design skills — from capturing new trends to creatively crafting unique, engaging living spaces — while delivering the highest value to clients and the company.">
           Mục tiêu của mình là không ngừng trau dồi kỹ năng thiết kế nội thất: từ nắm bắt xu hướng mới đến sáng tạo những không gian sống độc đáo, cuốn hút — và mang lại giá trị cao nhất cho khách hàng và công ty.
         </p>
