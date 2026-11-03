@@ -3,36 +3,467 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tiến Vũ</title>
+  <title>Vũ Quang Tiến — Interior Designer</title>
+  <meta name="description" content="Vũ Quang Tiến — Interior designer, CEO tại 945 Design. Thiết kế nội thất nhà ở, căn hộ, văn phòng từ năm 2017.">
+  <meta name="theme-color" content="#EEEAE3">
+
+  <!-- Khi chia sẻ link lên Facebook / Zalo sẽ hiện ảnh + tiêu đề này -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vũ Quang Tiến — Interior Designer">
+  <meta property="og:description" content="Thiết kế những không gian đáng sống. Portfolio & kinh nghiệm làm việc.">
+  <meta property="og:url" content="https://tienvuid.github.io/">
+  <meta property="og:image" content="https://tienvuid.github.io/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233A2217'/%3E%3Cpath d='M9.5 25V15a6.5 6.5 0 0 1 13 0v10z' fill='%23EEEAE3'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, sans-serif;
-      background: #0d1117;
-      color: #e6edf3;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
+    :root {
+      --bg: #EEEAE3;
+      --bg-soft: #E6E0D6;
+      --ink: #24160F;
+      --brown: #3A2217;
+      --muted: #6B5B50;
+      --line: rgba(36, 22, 15, .22);
+      --tan: #CDBBA8;
+      --pad: clamp(20px, 4vw, 56px);
+      --display: "Inter Tight", "Inter", "Helvetica Neue", Arial, sans-serif;
+      --text: "Inter", "Helvetica Neue", Arial, sans-serif;
     }
-    h1 { font-size: 2.5rem; margin-bottom: 12px; }
-    p { color: #8b949e; margin-bottom: 24px; }
-    a {
-      color: #fff;
-      background: #238636;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--text);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; }
+    :focus-visible { outline: 2px solid var(--brown); outline-offset: 3px; border-radius: 4px; }
+    .wrap { max-width: 1440px; margin-inline: auto; padding-inline: var(--pad); }
+    .label {
+      font-size: 13px; letter-spacing: .02em; color: var(--muted);
+      display: flex; gap: 10px; align-items: baseline;
+    }
+    .label b { font-weight: 500; color: var(--ink); }
+
+    /* ───────── Nav ───────── */
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-in {
+      max-width: 1440px; margin: 0 auto; padding: 0 var(--pad);
+      height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .brand { font-family: var(--display); font-weight: 600; font-size: 15px; letter-spacing: -.01em; white-space: nowrap; }
+    .nav-links { display: flex; gap: 32px; font-size: 14px; }
+    .nav-links a { color: var(--muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .lang { display: flex; font-size: 12px; font-weight: 500; border: 1px solid var(--line); border-radius: 999px; padding: 2px; }
+    .lang button {
+      font: inherit; background: none; border: 0; cursor: pointer; color: var(--muted);
+      padding: 4px 10px; border-radius: 999px; transition: background .2s, color .2s;
+    }
+    .lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+      font-size: 14px; font-weight: 500; padding: 9px 18px; border-radius: 999px;
+      background: var(--ink); color: var(--bg); transition: background .2s, transform .2s;
+    }
+    .pill:hover { background: var(--brown); transform: translateY(-1px); }
+    .pill.ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+    .pill.ghost:hover { background: var(--ink); color: var(--bg); }
+
+    /* ───────── Hero ───────── */
+    .hero-top {
+      display: grid; grid-template-columns: 1fr clamp(240px, 27vw, 400px);
+      gap: clamp(24px, 5vw, 80px); align-items: end;
+    }
+    .display {
+      font-family: var(--display); font-weight: 500;
+      font-size: clamp(3rem, 7.6vw, 8.75rem);
+      line-height: .98; letter-spacing: -.05em;
+    }
+    .line { display: block; overflow: hidden; padding-top: .14em; margin-top: -.14em; padding-bottom: .17em; margin-bottom: -.17em; }
+    .line > span { display: block; transform: translateY(110%); animation: rise 1s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: calc(var(--i) * .09s + .1s); }
+    @keyframes rise { to { transform: none; } }
+
+    .arch-wrap { position: relative; justify-self: end; width: 100%; margin-bottom: 4px; }
+    .arch-box { position: relative; }
+    .arch-box::before, .arch-box::after { content: ""; position: absolute; border-radius: 999px 999px 0 0; z-index: 0; }
+    .arch-box::before { top: -14px; bottom: 0; left: -34px; width: 70%; background: var(--tan); opacity: .7; }
+    .arch-box::after { top: -28px; bottom: 0; right: -22px; width: 78%; border: 1px solid var(--ink); border-bottom: 0; opacity: .5; }
+    .arch {
+      position: relative; z-index: 1; aspect-ratio: 3 / 4.15; background: #000;
+      border-radius: 999px 999px 0 0; overflow: hidden;
+      opacity: 0; animation: fade 1.1s .35s ease forwards;
+    }
+    .arch img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
+    @keyframes fade { to { opacity: 1; } }
+    .arch-cap {
+      position: relative; z-index: 1; display: flex; margin-top: 18px; justify-content: space-between; gap: 12px;
+      font-size: 12.5px; color: var(--muted); padding-top: 12px; border-top: 1px solid var(--ink);
+    }
+    .arch-cap b { color: var(--ink); font-weight: 500; }
+
+    .hero-bottom {
+      margin-top: clamp(40px, 6vw, 80px); padding: 24px 0 0; border-top: 1px solid var(--ink);
+      display: grid; grid-template-columns: 1fr 1.6fr auto; gap: clamp(20px, 4vw, 64px); align-items: start;
+    }
+    .hero-bottom p { font-size: clamp(15px, 1.25vw, 17.5px); color: var(--ink); max-width: 56ch; }
+    .hero-bottom .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    /* ───────── About / stats ───────── */
+    main section { padding-top: clamp(72px, 10vw, 140px); }
+    main section.hero { padding-top: clamp(40px, 7vw, 96px); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); margin-top: 28px; align-items: start; }
+    .statement {
+      font-family: var(--display); font-weight: 500; letter-spacing: -.035em; line-height: 1.08;
+      font-size: clamp(1.7rem, 3.3vw, 3.2rem);
+    }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .stat { padding: clamp(18px, 2vw, 28px); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); min-height: clamp(170px, 18vw, 250px); display: flex; flex-direction: column; justify-content: space-between; gap: 18px; }
+    .stat .n { font-family: var(--display); font-weight: 500; font-size: clamp(2.8rem, 5.2vw, 5rem); letter-spacing: -.05em; line-height: 1; }
+    .stat p { font-size: 13.5px; color: var(--muted); max-width: 22ch; line-height: 1.4; }
+    .stat .tiny { font-size: 13px; letter-spacing: .02em; opacity: .7; }
+    .stat.dark { background: var(--brown); color: var(--bg); border-color: var(--brown); }
+    .stat.dark p { color: inherit; font-size: clamp(15px, 1.35vw, 18px); max-width: 24ch; line-height: 1.3; letter-spacing: -.01em; }
+
+    /* ───────── Experience ───────── */
+    .sec-head { display: flex; flex-direction: column; gap: 24px; margin-bottom: clamp(36px, 5vw, 64px); }
+    .h2 { font-family: var(--display); font-weight: 500; font-size: clamp(2.6rem, 7vw, 7.5rem); line-height: .98; letter-spacing: -.05em; }
+    .jobs { border-top: 1px solid var(--ink); }
+    .job {
+      display: grid; grid-template-columns: minmax(150px, .7fr) 1.35fr 1.25fr; gap: clamp(16px, 3vw, 48px);
+      padding: clamp(22px, 2.6vw, 34px) clamp(0px, 1vw, 12px);
+      border-bottom: 1px solid var(--line); transition: background .3s;
+    }
+    .job:hover { background: var(--bg-soft); }
+    .job-date { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; font-size: 14px; font-variant-numeric: tabular-nums; }
+    .tag { font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; border: 1px solid currentColor; }
+    .job h3 { font-family: var(--display); font-weight: 500; font-size: clamp(1.35rem, 2.3vw, 2.2rem); letter-spacing: -.035em; line-height: 1.12; }
+    .role { margin-top: 8px; font-size: 14.5px; color: var(--muted); }
+    .job-list { display: grid; gap: 7px; font-size: 14.5px; align-content: start; }
+    .job-list li { display: grid; grid-template-columns: 18px 1fr; }
+    .job-list li::before { content: "—"; color: var(--muted); }
+    .job.now { background: var(--brown); color: var(--bg); border-bottom-color: var(--brown); margin: 0 calc(var(--pad) * -.25); padding-left: calc(clamp(0px, 1vw, 12px) + var(--pad) * .25); padding-right: calc(clamp(0px, 1vw, 12px) + var(--pad) * .25); }
+    .job.now:hover { background: var(--brown); }
+    .job.now .role, .job.now .job-list li::before { color: rgba(238, 234, 227, .65); }
+
+    /* ───────── Education & skills ───────── */
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); }
+    .edu .big { font-family: var(--display); font-weight: 500; font-size: clamp(1.6rem, 3vw, 2.8rem); letter-spacing: -.04em; line-height: 1.1; margin-top: 28px; }
+    .edu .meta { margin-top: 14px; color: var(--muted); font-size: 15px; }
+    .edu .year { font-family: var(--display); font-size: clamp(3rem, 6vw, 6rem); letter-spacing: -.05em; font-weight: 500; line-height: 1; margin-top: 28px; }
+    .skills { border-top: 1px solid var(--ink); margin-top: 28px; }
+    .skills li { display: flex; gap: 20px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); font-family: var(--display); font-weight: 500; font-size: clamp(1.25rem, 2vw, 1.9rem); letter-spacing: -.03em; transition: padding .3s; }
+    .skills li:hover { padding-left: 10px; }
+    .skills li span { font-family: var(--text); font-weight: 400; font-size: 13px; letter-spacing: 0; color: var(--muted); min-width: 24px; }
+
+    /* ───────── Contact ───────── */
+    .contact { margin-top: clamp(72px, 10vw, 140px); background: var(--brown); color: var(--bg); padding: clamp(56px, 8vw, 110px) 0 28px; }
+    .contact .label, .contact .label b { color: rgba(238, 234, 227, .7); }
+    .contact .h2 { margin: 24px 0 clamp(36px, 5vw, 64px); max-width: 12ch; }
+    .links { border-top: 1px solid rgba(238, 234, 227, .35); }
+    .links a { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 20px 0; border-bottom: 1px solid rgba(238, 234, 227, .2); font-family: var(--display); font-weight: 500; font-size: clamp(1.3rem, 2.6vw, 2.4rem); letter-spacing: -.035em; transition: padding .3s, background .3s; }
+    .links a small { font-family: var(--text); font-size: 14px; font-weight: 400; letter-spacing: 0; color: rgba(238, 234, 227, .65); }
+    .links a:hover { padding-left: 14px; padding-right: 14px; background: rgba(238, 234, 227, .06); }
+    footer { margin-top: clamp(48px, 7vw, 96px); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: rgba(238, 234, 227, .6); }
+
+    /* ───────── Reveal on scroll (chỉ bật khi có JS) ───────── */
+    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+    .js .reveal.in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .line > span { transform: none; animation: none; }
+      .arch { opacity: 1; animation: none; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ───────── Responsive ───────── */
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .hero-top { grid-template-columns: 1fr; }
+      .arch-wrap { max-width: 290px; justify-self: start; margin-left: 28px; margin-top: 40px; }
+      .hero-bottom { grid-template-columns: 1fr; }
+      .about-grid, .two { grid-template-columns: 1fr; }
+      .job { grid-template-columns: 1fr; gap: 14px; }
+      .job-date { flex-direction: row; align-items: center; gap: 12px; }
+    }
+    @media (max-width: 520px) {
+      .display { font-size: 10.2vw; }
+      .nav-in { height: 58px; }
+      .pill.nav-cta { display: none; }
+      .stat { min-height: 150px; }
+      .links a small { display: none; }
     }
   </style>
 </head>
-<body>
+<body id="top">
+
+  <header class="nav">
+    <div class="nav-in">
+      <a class="brand" href="#top">Vũ Quang Tiến</a>
+      <nav class="nav-links" aria-label="Điều hướng">
+        <a href="#about" data-en="About">Giới thiệu</a>
+        <a href="#experience" data-en="Experience">Kinh nghiệm</a>
+        <a href="#skills" data-en="Skills">Kỹ năng</a>
+        <a href="#contact" data-en="Contact">Liên hệ</a>
+      </nav>
+      <div class="nav-right">
+        <div class="lang" role="group" aria-label="Ngôn ngữ / Language">
+          <button type="button" data-lang="vi" aria-pressed="true">VI</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="pill nav-cta" href="https://www.behance.net/tienvuid" target="_blank" rel="noopener">Behance ↗</a>
+      </div>
+    </div>
+  </header>
+
   <main>
-    <h1>Xin chào, mình là Tiến Vũ 👋</h1>
-    <p>Đây là trang web cá nhân đầu tiên của mình.</p>
-    <a href="https://github.com/tienvuid">GitHub của mình</a>
+    <!-- ═════════ HERO ═════════ -->
+    <section class="hero wrap">
+      <div class="hero-top">
+        <h1 class="display" data-en='<span class="line"><span style="--i:0">Designing</span></span><span class="line"><span style="--i:1">spaces worth</span></span><span class="line"><span style="--i:2">living in.</span></span>'>
+          <span class="line"><span style="--i:0">Thiết kế</span></span>
+          <span class="line"><span style="--i:1">những không gian</span></span>
+          <span class="line"><span style="--i:2">đáng sống.</span></span>
+        </h1>
+
+        <figure class="arch-wrap">
+          <div class="arch-box">
+            <div class="arch">
+              <img src="portrait.jpg" alt="Chân dung Vũ Quang Tiến" width="471" height="507" fetchpriority="high">
+            </div>
+          </div>
+          <figcaption class="arch-cap">
+            <span><b>Vũ Quang Tiến</b><br>Interior designer</span>
+            <span style="text-align:right">CEO · 945 Design<br><span data-en="since 2022">từ 2022</span></span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="label"><b>(00)</b> Interior designer</div>
+        <p data-en="My goal is to keep developing and refining my interior design skills — from capturing new trends to creatively crafting unique, engaging living spaces — while delivering the highest value to clients and the company.">
+          Mục tiêu của mình là không ngừng trau dồi kỹ năng thiết kế nội thất: từ nắm bắt xu hướng mới đến sáng tạo những không gian sống độc đáo, cuốn hút — và mang lại giá trị cao nhất cho khách hàng và công ty.
+        </p>
+        <div class="ctas">
+          <a class="pill" href="#experience" data-en="View experience ↓">Xem kinh nghiệm ↓</a>
+          <a class="pill ghost" href="#contact" data-en="Get in touch">Liên hệ</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ ABOUT ═════════ -->
+    <section id="about" class="wrap">
+      <div class="label reveal"><b>(01)</b> <span data-en="About">Giới thiệu</span></div>
+      <div class="about-grid">
+        <p class="statement reveal" data-en="Since 2017, I've worked on houses, apartments, offices and even gaming cafés — from the first idea and drawings to the finished build.">
+          Từ năm 2017, mình đồng hành cùng những ngôi nhà, căn hộ, văn phòng và cả quán gaming café — từ ý tưởng, bản vẽ đến lúc công trình hoàn thiện.
+        </p>
+        <div class="stats reveal">
+          <div class="stat">
+            <div class="n"><span data-years-since="2017-04">9</span>+</div>
+            <p data-en="years in the field, since 04/2017">năm trong nghề, từ 04/2017</p>
+          </div>
+          <div class="stat">
+            <div class="n">5</div>
+            <p data-en="roles at 5 companies, from designer to CEO">vị trí tại 5 công ty, từ nhân viên thiết kế đến CEO</p>
+          </div>
+          <div class="stat">
+            <div class="n"><span data-years-since="2022-02">4</span>+</div>
+            <p data-en="years as CEO at 945 Design">năm làm CEO tại 945 Design</p>
+          </div>
+          <div class="stat dark">
+            <div class="tiny" data-en="Promise">Cam kết</div>
+            <p data-en="Every drawing is a promise: the finished space should match the paper.">Mỗi bản vẽ là một lời hứa: công trình ngoài đời phải đúng như trên giấy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ EXPERIENCE ═════════ -->
+    <section id="experience" class="wrap">
+      <div class="sec-head">
+        <div class="label reveal"><b>(02)</b> <span data-en="Career">Sự nghiệp</span></div>
+        <h2 class="h2 reveal" data-en="Work<br>experience">Kinh nghiệm<br>làm việc</h2>
+      </div>
+
+      <div class="jobs">
+        <article class="job now reveal">
+          <div class="job-date">
+            <span>02.2022 — <span data-en="Present">Nay</span></span>
+            <span class="tag" data-en="Current">Hiện tại</span>
+          </div>
+          <div>
+            <h3>945 Design Construction Design Company Limited</h3>
+            <p class="role">CEO · Interior designer</p>
+          </div>
+          <ul class="job-list">
+            <li data-en="Interior design: house, apartment, office">Thiết kế nội thất: nhà ở, căn hộ, văn phòng</li>
+            <li data-en="Meeting and working with clients">Làm việc, trao đổi trực tiếp với khách hàng</li>
+            <li data-en="Design drawing approval">Duyệt hồ sơ bản vẽ thiết kế</li>
+            <li data-en="Reviewing interior shop drawings">Kiểm tra bản vẽ thi công (shopdrawing) nội thất</li>
+            <li data-en="Construction supervision">Giám sát thi công</li>
+            <li data-en="Organizing and overseeing construction">Tổ chức và điều hành thi công</li>
+          </ul>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-date"><span>04.2021 — 02.2022</span></div>
+          <div>
+            <h3>Vstudio Architecture Company Limited</h3>
+            <p class="role">Senior interior designer · Interior shopdrawing</p>
+          </div>
+          <ul class="job-list">
+            <li data-en="Interior design: house, apartment, office">Thiết kế nội thất: nhà ở, căn hộ, văn phòng</li>
+            <li data-en="Interior shop drawings">Triển khai bản vẽ thi công nội thất</li>
+          </ul>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-date"><span>06.2019 — 04.2021</span></div>
+          <div>
+            <h3>Tropical House</h3>
+            <p class="role">Interior designer · Team leader</p>
+          </div>
+          <ul class="job-list">
+            <li data-en="Interior design: house, apartment, karaoke room">Thiết kế nội thất: nhà ở, căn hộ, phòng karaoke</li>
+            <li data-en="Construction supervision">Giám sát thi công</li>
+            <li data-en="Design drawing approval">Duyệt hồ sơ bản vẽ thiết kế</li>
+          </ul>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-date"><span>05.2018 — 06.2019</span></div>
+          <div>
+            <h3>WAYS Company Limited</h3>
+            <p class="role">Interior designer</p>
+          </div>
+          <ul class="job-list">
+            <li data-en="Game store interior design">Thiết kế nội thất cửa hàng game</li>
+            <li data-en="Gaming café interior design">Thiết kế nội thất quán gaming café</li>
+          </ul>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-date"><span>04.2017 — 05.2018</span></div>
+          <div>
+            <h3>DOCTOR HOUSE Technical Trading &amp; Services Company Limited</h3>
+            <p class="role">Interior designer</p>
+          </div>
+          <ul class="job-list">
+            <li data-en="House interior design">Thiết kế nội thất nhà ở</li>
+            <li data-en="Apartment interior design">Thiết kế nội thất căn hộ</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═════════ EDUCATION & SKILLS ═════════ -->
+    <section id="skills" class="wrap">
+      <div class="two">
+        <div class="edu reveal">
+          <div class="label"><b>(03)</b> <span data-en="Education">Học vấn</span></div>
+          <div class="year">2013 — 2018</div>
+          <p class="big" data-en="Ho Chi Minh City University of Technology (HUTECH)">Trường Đại học Công nghệ TP. Hồ Chí Minh (HUTECH)</p>
+          <p class="meta" data-en="Major: Interior design">Chuyên ngành: Thiết kế nội thất</p>
+        </div>
+        <div class="reveal">
+          <div class="label"><b>(04)</b> <span data-en="Skills & software">Kỹ năng &amp; phần mềm</span></div>
+          <ul class="skills">
+            <li><span>01</span>Autodesk 3ds Max</li>
+            <li><span>02</span>Autodesk AutoCAD</li>
+            <li><span>03</span>SketchUp</li>
+            <li><span>04</span>V-Ray rendering</li>
+            <li><span>05</span>Corona rendering</li>
+            <li><span>06</span>Photoshop</li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- ═════════ CONTACT ═════════ -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="label"><b>(05)</b> <span data-en="Contact">Liên hệ</span></div>
+      <h2 class="h2" data-en="Let's shape<br>your space.">Cùng tạo nên<br>không gian của bạn.</h2>
+      <div class="links">
+        <a href="https://www.behance.net/tienvuid" target="_blank" rel="noopener">Behance <small>behance.net/tienvuid ↗</small></a>
+        <a href="https://facebook.com/tienvid" target="_blank" rel="noopener">Facebook <small>facebook.com/tienvid ↗</small></a>
+        <!-- Muốn thêm email / số điện thoại: bỏ dấu comment dòng dưới và sửa lại
+        <a href="mailto:email-cua-ban@gmail.com">Email <small>email-cua-ban@gmail.com ↗</small></a>
+        <a href="tel:+84900000000">Điện thoại <small>0900 000 000 ↗</small></a>
+        -->
+      </div>
+      <footer>
+        <span>© <span id="year">2026</span> Vũ Quang Tiến</span>
+        <span data-en="Interior designer · CEO, 945 Design">Interior designer · CEO, 945 Design</span>
+      </footer>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+
+      /* Năm hiện tại + số năm kinh nghiệm tự cập nhật */
+      var now = new Date();
+      document.getElementById('year').textContent = now.getFullYear();
+      document.querySelectorAll('[data-years-since]').forEach(function (el) {
+        var p = el.getAttribute('data-years-since').split('-');
+        var months = (now.getFullYear() - +p[0]) * 12 + (now.getMonth() + 1 - +p[1]);
+        el.textContent = Math.max(0, Math.floor(months / 12));
+      });
+
+      /* Chuyển đổi Tiếng Việt / English: nội dung gốc trong HTML là tiếng Việt,
+         bản tiếng Anh nằm trong thuộc tính data-en */
+      var items = document.querySelectorAll('[data-en]');
+      items.forEach(function (el) { el.setAttribute('data-vi', el.innerHTML); });
+      var buttons = document.querySelectorAll('.lang button');
+      function setLang(lang) {
+        items.forEach(function (el) { el.innerHTML = el.getAttribute(lang === 'en' ? 'data-en' : 'data-vi'); });
+        root.lang = lang;
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === lang)); });
+        try { localStorage.setItem('lang', lang); } catch (e) {}
+      }
+      buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
+      var saved = null;
+      try { saved = localStorage.getItem('lang'); } catch (e) {}
+      if (saved === 'en') setLang('en');
+
+      /* Hiện dần khi cuộn tới */
+      var els = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+        els.forEach(function (el) { io.observe(el); });
+      } else {
+        els.forEach(function (el) { el.classList.add('in'); });
+      }
+    })();
+  </script>
 </body>
 </html>
